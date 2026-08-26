@@ -1,0 +1,23 @@
+﻿@{
+	ViewData["title"] = "Thông tin sản phảma";
+}
+@{
+	NkkProduct product = ViewData["product"] as Nkklesion02theory.Models.NkkProduct;
+}
+<div class="alert alert-danger">
+	<h2>
+		Dữ liệu lấy từ viewData
+	</h2>
+	<p>Mã sản phẩm:@product.ProductId</p>
+	<p>Tên sản phẩm:@product.ProductName</p>
+	<p>năm sản xuất:@product.YearRelease</p>
+	<p>Giá:@product.Price</p>
+
+</div>
+<div class="alert alert-info">
+	<h2>Dữ liệu lấy từ viewBag</h2>
+	<p>Mã sản phâm:@ViewBag.product.ProductId</p>
+	<p>Tên sản phẩm:@ViewBag.product.ProductName</p>
+	<p>Năm sản xuất: @ViewBag.product.YearRelease</p>
+	<p>Giá:@ViewBag.product.Price </p>
+</div>
