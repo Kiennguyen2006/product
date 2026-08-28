@@ -1,0 +1,40 @@
+﻿@model nkklesion03.Views.nkkproduct.nkkgetallproductModel
+@{
+    ViewData["Title"]="danh sách sản phảm";
+    var products = ViewData["products"] as List<nkklesion03.Models.nkkproduct>;
+}
+<div class="card">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="card-body" >
+        <table class="table table-bordered">
+            <thead>
+                <th>id</th>
+                <th>name</th>
+                <th>year</th>
+                <th>Price</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach(var item in products)
+                {
+                    <tr>
+                        <td>@item.nkkproductid</td>
+                        <td>@item.nkkproductname</td>
+                        <td>@item.nkkyearrelease</td>
+                        <td>@item.nkkprice</td>
+                        <td>
+                            <a href="#" class=" btn btn-info">xem chi tiết</a>
+                            <a href="#" class="btn btn-primary">sửa</a>
+                            <a href="#" class="btn btn-danger">xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <th colspan="5">Tổng số sản phẩm:@products.Count</th>
+            </tfoot>
+        </table>
+    </div>
+</div>
