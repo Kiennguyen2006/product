@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../nkklesion01Mvc/nkklesion01Mvc.csproj" />
+  <Project Path="nkklesion01/nkklesion01.csproj" />
+</Solution>
