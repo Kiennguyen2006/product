@@ -1,0 +1,38 @@
+﻿@model nkklesion04.Models.nkkaccount
+
+@{
+    ViewData["Title"] = "Thông tin cá nhân";
+}
+
+<div class="row">
+    @if (Model != null)
+    {
+        <div class="col-md-4">
+            <img src="@Model.avartar" alt="@Model.name" class="img-fluid" />
+        </div>
+        <div class="col-md-8">
+            <div class="card p-3">
+                <h3>fullname: @Model.name</h3>
+                <p>Address: @Model.address</p>
+                <p>Email: @Model.email</p>
+                <p>Phone: @Model.phone</p>
+                <p>bio: @Model.bio</p>
+                <p>
+                    gender:
+                    @if (Model.gender == 1)
+                    {
+                        <span>Nam</span>
+                    }
+                    else
+                    {
+                        <span>Nữ</span>
+                    }
+                </p>
+                <p>birthDate: @Model.birthday.ToString("dd/MM/yyyy")</p>
+                <p>
+                    <a asp-controller="nkkaccount" asp-action="nkkindex" class="btn btn-danger">Quay lại</a>
+                </p>
+            </div>
+        </div>
+    }
+</div>

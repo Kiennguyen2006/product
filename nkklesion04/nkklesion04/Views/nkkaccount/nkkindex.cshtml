@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Danh sách tài khoản";
+    var nkkaccount = ViewBag.mangdulieu;
+}
+
+<style>
+    .user-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+
+        .user-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    .avatar-wrapper {
+        width: 100px;
+        height: 100px;
+        margin: 20px auto 10px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #198754; /* Màu viền xanh lá chủ đạo */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .avatar-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .user-card-body {
+        padding: 0 20px 20px;
+        text-align: center;
+    }
+
+    .user-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 5px;
+    }
+
+    .user-bio {
+        font-size: 0.9rem;
+        color: #6c757d;
+        min-height: 40px; /* Giúp các card cao bằng nhau nếu bio ngắn dài khác nhau */
+        margin-bottom: 15px;
+    }
+
+    .btn-profile {
+        border-radius: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        padding: 8px 0;
+    }
+</style>
+
+<div class="container py-4">
+    <h2 class="text-center fw-bold mb-4 text-success">DANH SÁCH TÀI KHOẢN</h2>
+
+    <div class="row g-4">
+        @if (nkkaccount != null)
+        {
+            @foreach (var item in nkkaccount)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="card user-card h-100">
+                        <div class="avatar-wrapper">
+                            <img src="@item.avartar" class="avatar-img" alt="Lỗi ảnh"
+                                 onerror="this.onerror=null; this.src='https://via.placeholder.com/100?text=Avatar';" />
+                        </div>
+                        <div class="user-card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h3 class="user-name">@item.name</h3>
+                                <p class="user-bio">@item.bio</p>
+                            </div>
+                            <a href="/ho-so-cua-toi?ma=@item.id" class="btn btn-success btn-profile w-100 mt-2">Xem Hồ Sơ</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center text-muted">
+                <p>Không có dữ liệu tài khoản để hiển thị.</p>
+            </div>
+        }
+    </div>
+</div>
