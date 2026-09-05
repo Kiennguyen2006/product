@@ -26,4 +26,5 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 
-app.Run();
+app.Run();//thay đổi
+
