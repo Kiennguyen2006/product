@@ -1,0 +1,50 @@
+﻿@{
+	ViewData["title"] = "cú pháp Razor";
+}
+<h1>@ViewData["title"]</h1>
+<hr/>
+@{
+	var total = 7500;
+	var mymessager = "Tổng tiền là:" + total.ToString("C");
+}
+<p>
+	Tài khoản của bạn:$@total
+</p>
+<p>
+	@mymessager
+</p>
+<h2>
+	cấu trúc if else
+</h2>
+<hr/>
+@if(total>5000)
+{
+	<p>Bạn rick</p>
+}
+else
+{
+	if (total > 2000)
+	{
+		<p>Bạn là người thường</p>
+	}
+}
+<h2>Vòng lặp for</h2>
+@for(int i = 0; i < 10; i++)
+{
+	if (i % 2==0)
+	{
+		<span class="btn btn-danger">@i</span>
+	}
+	else
+	{
+		<span class="btn btn-success">@i</span>
+	}
+}
+<h2>mảng</h2>
+@{
+	string[] mang = { "icon1.png", "icon2.png", "icon3.png", "icon4.png", "icon5.png" };
+}
+@foreach (var k in mang)
+{
+	<img src="~/images/@k"  width="150" height="150"/>
+}
