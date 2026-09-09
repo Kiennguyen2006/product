@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("nkklession05")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a794e01fcc0835f0c9cc6d3430d123a3469440b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1897fe69da292de496e6acf5bc6ac7396e98480a")]
 [assembly: System.Reflection.AssemblyProductAttribute("nkklession05")]
 [assembly: System.Reflection.AssemblyTitleAttribute("nkklession05")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
