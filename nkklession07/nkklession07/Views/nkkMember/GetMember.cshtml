@@ -1,0 +1,12 @@
+﻿@{
+	ViewData["Title"] = "Thoong tin Member";
+	var member = Model as nkklession07.Models.DataModel.nkkMember;
+}
+<div class="alert alert-info">
+	<h1>@ViewData["Title"]</h1>
+	<p>@member.nkkMemberId</p>
+	<p>@member.nkkMemberName</p>
+	<p>@member.nkkMemberpassword</p>
+	<p>@member.nkkFullname</p>
+	<p>@member.nkkEmail</p>
+</div>

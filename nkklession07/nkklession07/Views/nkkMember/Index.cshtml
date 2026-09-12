@@ -1,0 +1,56 @@
+@model IEnumerable<nkklession07.Models.DataModel.nkkMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+    <h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary my-1">Thêm mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nkkMemberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nkkMemberpassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nkkFullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nkkEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.nkkMemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.nkkMemberpassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.nkkFullname)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.nkkEmail)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.nkkMemberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.nkkMemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.nkkMemberId">Delete</a>
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>
+</div>
