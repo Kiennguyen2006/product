@@ -1,0 +1,45 @@
+@model nkklession08.Models.NkkMember
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>NkkMember</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NkkUserName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NkkUserName)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NkkPassword)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NkkPassword)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NkkFullName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NkkFullName)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NkkEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NkkEmail)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="NkkSua" asp-route-id="@Model?.NkkMemberId">Sửa thông tin</a> |
+    <a asp-action="NkkIndex">Quay lại</a>
+</div>

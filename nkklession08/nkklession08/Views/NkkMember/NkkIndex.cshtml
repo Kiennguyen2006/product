@@ -1,0 +1,57 @@
+@model IEnumerable<nkklession08.Models.NkkMember>
+
+@{
+    ViewData["Title"] = "Danh sách sinh viên";
+}
+<div class="card p-3">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+<p>
+    <a asp-action="NkkCreate">Thêm sinh viên</a>
+</p>
+<div class="card-body">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NkkUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NkkPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NkkFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NkkEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.NkkUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NkkPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NkkFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NkkEmail)
+            </td>
+            <td>
+                <a asp-action="NkkSua" asp-route-id="@item.NkkMemberId">Sửa</a> |
+                <a asp-action="Nkkchitiet" asp-route-id="@item.NkkMemberId">Chi tiết</a> 
+                <a asp-action="Nkkxoa" asp-route-id="@item.NkkMemberId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>

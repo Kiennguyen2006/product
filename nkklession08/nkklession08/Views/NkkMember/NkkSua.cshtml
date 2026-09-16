@@ -1,0 +1,47 @@
+@model nkklession08.Models.NkkMember
+
+@{
+    ViewData["Title"] = "Sửa thông tin sinh viên";
+}
+
+<h1>Edit</h1>
+
+<h4>NkkMember</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="NkkMember" asp-action="Suasanpham" method="POST">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="NkkMemberId" readonly />
+            <div class="form-group">
+                <label asp-for="NkkUserName" class="control-label"></label>
+                <input asp-for="NkkUserName" class="form-control" />
+                <span asp-validation-for="NkkUserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NkkPassword" class="control-label"></label>
+                <input asp-for="NkkPassword" class="form-control" />
+                <span asp-validation-for="NkkPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NkkFullName" class="control-label"></label>
+                <input asp-for="NkkFullName" class="form-control" />
+                <span asp-validation-for="NkkFullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NkkEmail" class="control-label"></label>
+                <input asp-for="NkkEmail" class="form-control" />
+                <span asp-validation-for="NkkEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                <a asp-action="NkkIndex" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

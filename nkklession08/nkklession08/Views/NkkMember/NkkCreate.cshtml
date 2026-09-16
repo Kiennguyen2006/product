@@ -1,0 +1,49 @@
+<form asp-action="NkkCreate" method="post">
+	@model nkklession08.Models.NkkMember
+
+	@{
+		ViewData["Title"] = "Thêm mới";
+	}
+	<div class="card p-3">
+		<div class="card-header">
+			<h1>Create</h1>
+		</div>
+		<h4>NkkMember</h4>
+		<hr />
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card-body">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+					<div class="form-group">
+						<label asp-for="NkkUserName" class="control-label"></label>
+						<input asp-for="NkkUserName" class="form-control" />
+						<span asp-validation-for="NkkUserName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="NkkPassword" class="control-label"></label>
+						<input asp-for="NkkPassword" class="form-control" />
+						<span asp-validation-for="NkkPassword" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="NkkFullName" class="control-label"></label>
+						<input asp-for="NkkFullName" class="form-control" />
+						<span asp-validation-for="NkkFullName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="NkkEmail" class="control-label"></label>
+						<input asp-for="NkkEmail" class="form-control" />
+						<span asp-validation-for="NkkEmail" class="text-danger"></span>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer">
+				<input type="submit" value="Thêm" class="btn btn-primary" />
+				<a asp-action="NkkIndex" class="btn btn-secondary">quay lại</a>
+			</div>
+		</div>
+	</div>
+</form>
