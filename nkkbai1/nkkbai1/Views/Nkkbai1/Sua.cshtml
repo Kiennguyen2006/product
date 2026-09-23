@@ -1,0 +1,72 @@
+@model nkkbai1.Models.Nkkbai1Model
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning text-dark py-3">
+                    <h4 class="card-title mb-0 fw-bold">Chỉnh sửa sản phẩm</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Suasp" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <input type="hidden" asp-for="masp" />
+                        <input type="hidden" asp-for="anh" />
+
+                        <div class="mb-3">
+                            <label asp-for="tensp" class="form-label fw-semibold">Tên sản phẩm</label>
+                            <input asp-for="tensp" class="form-control" placeholder="Nhập tên sản phẩm" />
+                            <span asp-validation-for="tensp" class="text-danger small"></span>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label asp-for="gia" class="form-label fw-semibold">Giá bán</label>
+                                <input asp-for="gia" type="number" class="form-control" />
+                                <span asp-validation-for="gia" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="soluong" class="form-label fw-semibold">Số lượng</label>
+                                <input asp-for="soluong" type="number" class="form-control" />
+                                <span asp-validation-for="soluong" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="loai" class="form-label fw-semibold">Loại sản phẩm</label>
+                            <input asp-for="loai" class="form-control" />
+                            <span asp-validation-for="loai" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold d-block">Hình ảnh hiện tại</label>
+                            @if (!string.IsNullOrEmpty(Model?.anh))
+                            {
+                                <div class="mb-2">
+                                    <img src="~/images/@Model.anh" alt="@Model.tensp" class="img-thumbnail" style="max-height: 120px;" />
+                                </div>
+                            }
+                            <label class="form-label fw-semibold">Chọn ảnh mới (nếu muốn đổi)</label>
+                            <input type="file" name="anhFile" class="form-control" accept="image/*" />
+                            <span asp-validation-for="anh" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center pt-2">
+                            <a asp-action="Nkkbai1" class="btn btn-outline-secondary">Quay lại danh sách</a>
+                            <button type="submit" class="btn btn-warning px-4 text-dark fw-semibold">Lưu thay đổi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

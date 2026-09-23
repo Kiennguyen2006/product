@@ -1,0 +1,74 @@
+﻿@model nkklession09Annotation.Models.DataViewModels.NkkMemberRegister
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>NkkMemberRegister</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NkkMemberId" class="control-label"></label>
+                <input asp-for="NkkMemberId" class="form-control" />
+                <span asp-validation-for="NkkMemberId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TvcUserName" class="control-label"></label>
+                <input asp-for="TvcUserName" class="form-control" />
+                <span asp-validation-for="TvcUserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NkkPassword" class="control-label"></label>
+                <input asp-for="NkkPassword" class="form-control" />
+                <span asp-validation-for="NkkPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NkkEmail" class="control-label"></label>
+                <input asp-for="NkkEmail" class="form-control" />
+                <span asp-validation-for="NkkEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NkkPhoneNumber" class="control-label"></label>
+                <input asp-for="NkkPhoneNumber" class="form-control" />
+                <span asp-validation-for="NkkPhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NkkFullName" class="control-label"></label>
+                <input asp-for="NkkFullName" class="form-control" />
+                <span asp-validation-for="NkkFullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NkkBirthday" class="control-label"></label>
+                <input asp-for="NkkBirthday" class="form-control" />
+                <span asp-validation-for="NkkBirthday" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

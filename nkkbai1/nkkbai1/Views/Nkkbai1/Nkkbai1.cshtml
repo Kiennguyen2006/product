@@ -1,0 +1,109 @@
+﻿@{
+	ViewData["Title"] = "Quản Lý Sản Phẩm";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container my-4">
+	<h1 class="mb-4 text-primary fw-bold text-center">@ViewData["Title"]</h1>
+
+	<div class="card p-3 mb-4 shadow-sm bg-light">
+		<form method="post" asp-controller="Nkkbai1" class="row g-3 align-items-end">
+			<div class="col-md-4">
+				<label class="form-label fw-bold">Khoảng giá</label>
+				<select name="khoanggia" class="form-select">
+					<option value="0">-- Chọn khoảng giá --</option>
+					<option value="1">Dưới 100k</option>
+					<option value="2">100K - 500k</option>
+					<option value="3">500k - 1tr</option>
+					<option value="4">1tr - 3tr</option>
+					<option value="5">Trên 3tr</option>
+				</select>
+			</div>
+
+			<div class="col-md-4">
+				<label class="form-label fw-bold">Thể loại</label>
+				<select name="loai" class="form-select">
+					<option value="0">-- Chọn thể loại --</option>
+					<option value="1">Laptop</option>
+					<option value="2">Điện thoại</option>
+					<option value="3">Chuột</option>
+				</select>
+			</div>
+
+			<div class="col-md-4 d-flex gap-2">
+				<button type="submit" class="btn btn-primary flex-grow-1">
+					🔍 Tìm kiếm
+				</button>
+				<a href="/Nkkbai1/Them" class="btn btn-success text-nowrap">
+					➕ Thêm sản phẩm
+				</a>
+			</div>
+		</form>
+	</div>
+
+	<div class="table-responsive card shadow-sm">
+		<table class="table table-hover table-striped table-bordered align-middle mb-0">
+			<thead class="table-dark text-center">
+				<tr>
+					<th>Mã SP</th>
+					<th>Tên sản phẩm</th>
+					<th>Giá</th>
+					<th>Số lượng</th>
+					<th>Loại</th>
+					<th>Hình ảnh</th>
+					<th style="width: 140px;">Hành động</th>
+				</tr>
+			</thead>
+			<tbody>
+				@if (ViewBag.Sanpham != null && ViewBag.Sanpham.Count > 0)
+				{
+					@* Vòng lặp foreach chỉ lặp qua dòng <tr> *@
+					@foreach (var item in ViewBag.Sanpham)
+					{
+						<tr>
+							<td class="text-center fw-bold">@item.masp</td>
+							<td class="fw-semibold">@item.tensp</td>
+							<td class="text-end text-danger fw-bold">@string.Format("{0:N0} đ", item.gia)</td>
+							<td class="text-center">@item.soluong</td>
+							<td class="text-center">
+								@switch ((int)item.loai)
+								{
+									case 1:
+										<span class="badge bg-info text-dark">Laptop</span>
+										break;
+									case 2:
+
+										<span class="badge bg-primary">Điện thoại</span>
+										break;
+									case 3:
+
+										<span class="badge bg-secondary">Chuột</span>
+										break;
+									default:
+
+										<span class="badge bg-dark">Khác</span>
+										break;
+								}
+							</td>
+							<td class="text-center">
+								<img src="/images/@item.anh" alt="@item.tensp" class="img-thumbnail rounded" style="max-width: 70px; height: auto;" />
+							</td>
+							<td class="text-center">
+								<div class="d-flex justify-content-center gap-1">
+									<a href="/Nkkbai1/Sua?masua=@item.masp" class="btn btn-sm btn-outline-warning">Sửa</a>
+									<a href="/Nkkbai1/Xoa?maxoa=@item.masp" class="btn btn-sm btn-outline-danger" onclick="return confirm('Xác nhận xóa sản phẩm này?');">Xoá</a>
+								</div>
+							</td>
+						</tr>
+					}
+				}
+				else
+				{
+					<tr>
+						<td colspan="7" class="text-center text-muted py-4">Không tìm thấy sản phẩm nào.</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
