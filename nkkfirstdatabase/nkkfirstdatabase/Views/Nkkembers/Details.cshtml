@@ -1,0 +1,48 @@
+@model nkkfirstdatabase.Models.Nkkember
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Nkkember</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nkkuser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nkkuser)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nkkpassword)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nkkpassword)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nkkfullname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nkkfullname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nkkemail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nkkemail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nkkphone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nkkphone)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.NkkMemberId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,59 @@
+@model IEnumerable<nkkfirstdatabase.Models.Nkkember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nkkuser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nkkpassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nkkfullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nkkemail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nkkphone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nkkuser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nkkpassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nkkfullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nkkemail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nkkphone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NkkMemberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NkkMemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NkkMemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

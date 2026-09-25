@@ -1,0 +1,53 @@
+@model nkkfirstdatabase.Models.Nkkember
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Nkkember</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nkkuser" class="control-label"></label>
+                <input asp-for="Nkkuser" class="form-control" />
+                <span asp-validation-for="Nkkuser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nkkpassword" class="control-label"></label>
+                <input asp-for="Nkkpassword" class="form-control" />
+                <span asp-validation-for="Nkkpassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nkkfullname" class="control-label"></label>
+                <input asp-for="Nkkfullname" class="form-control" />
+                <span asp-validation-for="Nkkfullname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nkkemail" class="control-label"></label>
+                <input asp-for="Nkkemail" class="form-control" />
+                <span asp-validation-for="Nkkemail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nkkphone" class="control-label"></label>
+                <input asp-for="Nkkphone" class="form-control" />
+                <span asp-validation-for="Nkkphone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
