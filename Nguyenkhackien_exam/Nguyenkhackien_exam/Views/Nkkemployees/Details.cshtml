@@ -1,0 +1,248 @@
+@model Nguyenkhackien_exam.Models.Nkkemployee
+
+@{
+    ViewData["Title"] = "Chi tiết nhân viên";
+}
+
+<style>
+    .details-page {
+        min-height: calc(100vh - 180px);
+        padding: 40px 15px;
+        background: linear-gradient(135deg, #f5f7ff, #ffffff);
+    }
+
+    .details-card {
+        max-width: 750px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 35px 40px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        border: 1px solid #eeeeee;
+    }
+
+    .details-title {
+        text-align: center;
+        color: #2b1766;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .details-subtitle {
+        text-align: center;
+        color: #777777;
+        margin-bottom: 25px;
+    }
+
+    .details-line {
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #32166d, #5429b8);
+        border-radius: 10px;
+        margin: 0 auto 30px auto;
+    }
+
+    .info-box {
+        border: 1px solid #eeeeee;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+
+    .info-row {
+        display: flex;
+        min-height: 55px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .info-row:last-child {
+        border-bottom: none;
+    }
+
+    .info-title {
+        width: 35%;
+        padding: 16px 18px;
+        background: #f7f7fb;
+        font-weight: 600;
+        color: #444444;
+    }
+
+    .info-value {
+        width: 65%;
+        padding: 16px 18px;
+        color: #222222;
+    }
+
+    .button-area {
+        display: flex;
+        gap: 12px;
+    }
+
+    .btn-edit {
+        flex: 1;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #32166d, #5429b8);
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .btn-edit:hover {
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(50, 22, 109, 0.25);
+    }
+
+    .btn-back {
+        flex: 1;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eeeeee;
+        color: #333333;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .btn-back:hover {
+        background: #dddddd;
+        color: #222222;
+    }
+
+    @@media (max-width: 600px) {
+
+        .details-card {
+            padding: 25px 20px;
+        }
+
+        .details-title {
+            font-size: 27px;
+        }
+
+        .info-row {
+            display: block;
+        }
+
+        .info-title,
+        .info-value {
+            width: 100%;
+        }
+
+        .info-value {
+            padding-top: 5px;
+        }
+
+        .button-area {
+            flex-direction: column;
+        }
+
+        .btn-edit,
+        .btn-back {
+            flex: none;
+        }
+    }
+</style>
+
+<div class="details-page">
+
+    <div class="details-card">
+
+        <h1 class="details-title">Chi tiết nhân viên</h1>
+
+        <div class="details-subtitle">
+            Thông tin chi tiết của nhân viên
+        </div>
+
+        <div class="details-line"></div>
+
+        <div class="info-box">
+
+            <div class="info-row">
+                <div class="info-title">
+                    Họ tên
+                </div>
+
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.Nkkname)
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-title">
+                    Giới tính
+                </div>
+
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.Nkkgender)
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-title">
+                    Ngày sinh
+                </div>
+
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.NkkbirthDay)
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-title">
+                    Email
+                </div>
+
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.Nkkemail)
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-title">
+                    Số điện thoại
+                </div>
+
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.Nkkphone)
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-title">
+                    Hoạt động
+                </div>
+
+                <div class="info-value">
+                    @Html.DisplayFor(model => model.Nkkactive)
+                </div>
+            </div>
+
+        </div>
+
+        <div class="button-area">
+
+            <a asp-action="Edit"
+               asp-route-id="@Model?.Id"
+               class="btn-edit">
+                Chỉnh sửa
+            </a>
+
+            <a asp-action="Index"
+               class="btn-back">
+                Quay lại
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

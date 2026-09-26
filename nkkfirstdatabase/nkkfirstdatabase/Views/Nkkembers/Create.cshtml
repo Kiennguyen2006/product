@@ -1,51 +1,79 @@
-@model nkkfirstdatabase.Models.Nkkember
+@model Nguyenkhackien_exam.Models.Nkkemployee
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Tạo nhân viên";
 }
 
-<h1>Create</h1>
+<h1>Tạo</h1>
 
-<h4>Nkkember</h4>
+<h4>Nkkemployee</h4>
+
 <hr />
+
 <div class="row">
+
     <div class="col-md-4">
+
         <form asp-action="Create">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="Nkkuser" class="control-label"></label>
-                <input asp-for="Nkkuser" class="form-control" />
-                <span asp-validation-for="Nkkuser" class="text-danger"></span>
+                <label asp-for="Nkkname" class="control-label"></label>
+                <input asp-for="Nkkname" class="form-control" />
+                <span asp-validation-for="Nkkname" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Nkkpassword" class="control-label"></label>
-                <input asp-for="Nkkpassword" class="form-control" />
-                <span asp-validation-for="Nkkpassword" class="text-danger"></span>
+                <label asp-for="Nkkgender" class="control-label"></label>
+                <input asp-for="Nkkgender" class="form-control" />
+                <span asp-validation-for="Nkkgender" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Nkkfullname" class="control-label"></label>
-                <input asp-for="Nkkfullname" class="form-control" />
-                <span asp-validation-for="Nkkfullname" class="text-danger"></span>
+                <label asp-for="NkkbirthDay" class="control-label">Ngày sinh</label>
+                <input asp-for="NkkbirthDay" class="form-control" type="date" />
+                <span asp-validation-for="NkkbirthDay" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Nkkemail" class="control-label"></label>
                 <input asp-for="Nkkemail" class="form-control" />
                 <span asp-validation-for="Nkkemail" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Nkkphone" class="control-label"></label>
                 <input asp-for="Nkkphone" class="form-control" />
                 <span asp-validation-for="Nkkphone" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="Nkkactive" class="control-label">Hoạt động</label>
+
+                <div class="form-check">
+                    <input asp-for="Nkkactive" class="form-check-input" />
+
+                    <label class="form-check-label" asp-for="Nkkactive">
+                        Đang hoạt động
+                    </label>
+                </div>
+
+                <span asp-validation-for="Nkkactive" class="text-danger"></span>
             </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Tạo" class="btn btn-primary" />
+            </div>
+
         </form>
+
     </div>
+
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="mt-3">
+    <a asp-action="Index">Quay lại danh sách</a>
 </div>
 
 @section Scripts {

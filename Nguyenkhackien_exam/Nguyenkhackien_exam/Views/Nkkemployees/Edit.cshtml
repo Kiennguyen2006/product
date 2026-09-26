@@ -1,0 +1,357 @@
+@model Nguyenkhackien_exam.Models.Nkkemployee
+
+@{
+    ViewData["Title"] = "Chỉnh sửa nhân viên";
+}
+
+<style>
+    .edit-page {
+        min-height: calc(100vh - 180px);
+        padding: 40px 15px;
+        background: linear-gradient(135deg, #f5f7ff, #ffffff);
+    }
+
+    .edit-card {
+        max-width: 750px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 35px 40px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        border: 1px solid #eeeeee;
+    }
+
+    .edit-title {
+        text-align: center;
+        margin-bottom: 8px;
+        color: #2b1766;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .edit-subtitle {
+        text-align: center;
+        color: #777777;
+        margin-bottom: 25px;
+        font-size: 16px;
+    }
+
+    .edit-line {
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #32166d, #6d45d8);
+        border-radius: 10px;
+        margin: 0 auto 30px auto;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333333;
+    }
+
+    .form-control {
+        width: 100%;
+        height: 48px;
+        padding: 10px 14px;
+        border: 1px solid #d9d9d9;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #fafafa;
+        transition: 0.2s;
+    }
+
+    .form-control:focus {
+        border-color: #5429b8;
+        box-shadow: 0 0 0 3px rgba(84, 41, 184, 0.12);
+        background-color: #ffffff;
+        outline: none;
+    }
+
+    .form-control:hover {
+        border-color: #a99ad3;
+    }
+
+    .text-danger {
+        display: block;
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    .status-select {
+        display: flex;
+        gap: 12px;
+    }
+
+    .status-option {
+        flex: 1;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .status-option input {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .status-option span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        border: 1px solid #d9d9d9;
+        border-radius: 10px;
+        background-color: #fafafa;
+        color: #555555;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .status-option:hover span {
+        border-color: #a99ad3;
+    }
+
+    .status-option input:checked + span {
+        background: linear-gradient(135deg, #32166d, #5429b8);
+        color: white;
+        border-color: #5429b8;
+        box-shadow: 0 5px 15px rgba(84, 41, 184, 0.2);
+    }
+
+    .button-area {
+        display: flex;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .btn-save {
+        flex: 1;
+        height: 48px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #32166d, #5429b8);
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .btn-save:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(50, 22, 109, 0.25);
+        color: white;
+    }
+
+    .btn-back {
+        flex: 1;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: #eeeeee;
+        color: #333333;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .btn-back:hover {
+        background-color: #dddddd;
+        color: #222222;
+    }
+
+    @@media (max-width: 600px) {
+
+        .edit-card {
+            padding: 25px 20px;
+        }
+
+        .edit-title {
+            font-size: 26px;
+        }
+
+        .status-select {
+            flex-direction: column;
+        }
+
+        .button-area {
+            flex-direction: column;
+        }
+
+        .btn-save,
+        .btn-back {
+            flex: none;
+        }
+    }
+</style>
+
+<div class="edit-page">
+
+    <div class="edit-card">
+
+        <h1 class="edit-title">
+            Chỉnh sửa nhân viên
+        </h1>
+
+        <div class="edit-subtitle">
+            Cập nhật thông tin nhân viên
+        </div>
+
+        <div class="edit-line"></div>
+
+        <form asp-action="Edit">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger"></div>
+
+            <input type="hidden"
+                   asp-for="Id" />
+
+            <div class="form-group">
+
+                <label asp-for="Nkkname"
+                       class="form-label">
+                    Họ tên
+                </label>
+
+                <input asp-for="Nkkname"
+                       class="form-control" />
+
+                <span asp-validation-for="Nkkname"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="Nkkgender"
+                       class="form-label">
+                    Giới tính
+                </label>
+
+                <input asp-for="Nkkgender"
+                       class="form-control" />
+
+                <span asp-validation-for="Nkkgender"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="NkkbirthDay"
+                       class="form-label">
+                    Ngày sinh
+                </label>
+
+                <input asp-for="NkkbirthDay"
+                       class="form-control"
+                       type="date" />
+
+                <span asp-validation-for="NkkbirthDay"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="Nkkemail"
+                       class="form-label">
+                    Email
+                </label>
+
+                <input asp-for="Nkkemail"
+                       class="form-control"
+                       type="email" />
+
+                <span asp-validation-for="Nkkemail"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="Nkkphone"
+                       class="form-label">
+                    Số điện thoại
+                </label>
+
+                <input asp-for="Nkkphone"
+                       class="form-control" />
+
+                <span asp-validation-for="Nkkphone"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Trạng thái
+                </label>
+
+                <div class="status-select">
+
+                    <label class="status-option">
+
+                        <input type="radio"
+                               asp-for="Nkkactive"
+                               value="true" />
+
+                        <span>
+                            Đang hoạt động
+                        </span>
+
+                    </label>
+
+                    <label class="status-option">
+
+                        <input type="radio"
+                               asp-for="Nkkactive"
+                               value="false" />
+
+                        <span>
+                            Ngừng hoạt động
+                        </span>
+
+                    </label>
+
+                </div>
+
+                <span asp-validation-for="Nkkactive"
+                      class="text-danger"></span>
+
+            </div>
+
+            <div class="button-area">
+
+                <input type="submit"
+                       value="Lưu thay đổi"
+                       class="btn-save" />
+
+                <a asp-action="Index"
+                   class="btn-back">
+                    Quay lại
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
