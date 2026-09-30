@@ -1,0 +1,76 @@
+﻿@model IEnumerable<NetCoreLAB6_EF.Models.NkkProduct>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Danh sách sản phẩm</h2>
+
+    <p>
+        <a asp-controller="NkkProduct" asp-action="Create" class="btn btn-success">+ Thêm mới sản phẩm</a>
+    </p>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Giá gốc</th>
+                <th>Giá KM</th>
+                <th>Trạng thái</th>
+                <th>Mô tả</th>
+                <th>Ngày tạo</th>
+                <th>Danh mục</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td class="text-center">
+                            @if (!string.IsNullOrEmpty(item.Image))
+                            {
+                                <img src="~/images/@item.Image" alt="@item.Name" width="70" height="70" style="object-fit: cover;" class="rounded border" />
+                            }
+                            else
+                            {
+                                <span class="text-muted">Không có ảnh</span>
+                            }
+                        </td>
+                        <td>@String.Format("{0:N0} VNĐ", item.Price)</td>
+                        <td>@(item.SalePrice.HasValue ? String.Format("{0:N0} VNĐ", item.SalePrice.Value) : "Không có")</td>
+                        <td>
+                            @if (item.Status == 1)
+                            {
+                                <span class="badge bg-success">Hiển thị</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Ẩn</span>
+                            }
+                        </td>
+                        <td>@item.Descriptions</td>
+                        <td>@item.CreatedDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.Category?.Name</td>
+                        <td>
+                            <a asp-controller="NkkProduct" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Sửa</a>
+                            <a asp-controller="NkkProduct" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">Xem</a>
+                            <a asp-controller="NkkProduct" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center text-muted">Chưa có sản phẩm nào.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

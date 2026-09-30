@@ -1,0 +1,40 @@
+﻿@model NetCoreLAB6_EF.Models.NkkProduct
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="text-danger">Xóa sản phẩm</h2>
+    <h5 class="text-muted">Bạn có chắc chắn muốn xóa sản phẩm này không?</h5>
+    <hr />
+
+    <div class="row mb-3">
+        <div class="col-sm-4 text-center">
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img src="~/images/@Model.Image" class="img-fluid rounded border shadow-sm" alt="@Model.Name" />
+            }
+        </div>
+        <div class="col-sm-8">
+            <dl class="row">
+                <dt class="col-sm-4">Tên sản phẩm:</dt>
+                <dd class="col-sm-8">@Model.Name</dd>
+
+                <dt class="col-sm-4">Giá bán:</dt>
+                <dd class="col-sm-8">@String.Format("{0:N0} VNĐ", Model.Price)</dd>
+
+                <dt class="col-sm-4">Danh mục:</dt>
+                <dd class="col-sm-8">@Model.Category?.Name</dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-controller="NkkProduct" asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+            <a asp-controller="NkkProduct" asp-action="NkkProduct" class="btn btn-secondary">Hủy bỏ</a>
+        </div>
+    </form>
+</div>

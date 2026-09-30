@@ -1,0 +1,52 @@
+﻿@model NetCoreLAB6_EF.Models.NkkProduct
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4" style="max-width: 600px;">
+    <h2>Chi tiết sản phẩm</h2>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-4">Tên sản phẩm:</dt>
+        <dd class="col-sm-8">@Model.Name</dd>
+
+        <dt class="col-sm-4">Hình ảnh:</dt>
+        <dd class="col-sm-8">
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img src="~/images/@Model.Image" width="150" class="img-thumbnail" />
+            }
+            else
+            {
+                <span class="text-muted">Không có ảnh</span>
+            }
+        </dd>
+
+        <dt class="col-sm-4">Giá gốc:</dt>
+        <dd class="col-sm-8">@String.Format("{0:N0} VNĐ", Model.Price)</dd>
+
+        <dt class="col-sm-4">Giá khuyến mãi:</dt>
+        <dd class="col-sm-8">@(Model.SalePrice.HasValue ? String.Format("{0:N0} VNĐ", Model.SalePrice.Value) : "Không có")</dd>
+
+        <dt class="col-sm-4">Trạng thái:</dt>
+        <dd class="col-sm-8">
+            @(Model.Status == 1 ? "Hiển thị" : "Ẩn")
+        </dd>
+
+        <dt class="col-sm-4">Danh mục:</dt>
+        <dd class="col-sm-8">@Model.Category?.Name</dd>
+
+        <dt class="col-sm-4">Ngày tạo:</dt>
+        <dd class="col-sm-8">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-4">Mô tả:</dt>
+        <dd class="col-sm-8">@Model.Descriptions</dd>
+    </dl>
+
+    <div class="d-flex gap-2">
+        <a asp-controller="NkkProduct" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Sửa</a>
+        <a asp-controller="NkkProduct" asp-action="NkkProduct" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+</div>
