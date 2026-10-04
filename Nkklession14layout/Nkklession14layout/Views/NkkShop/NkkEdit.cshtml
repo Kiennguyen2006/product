@@ -1,0 +1,40 @@
+﻿@model Nkklession14layout.Models.NkkShopEditViewModel
+@{
+    ViewData["Title"] = (Model.Key is null ? "Thêm " : "Sửa ") + Model.Title.ToLowerInvariant();
+}
+
+<h1 class="h2 mb-3">@ViewData["Title"]</h1>
+<div class="card form-card">
+    <div class="card-body">
+        <form asp-action="NkkSave" method="post">
+            <input type="hidden" name="entity" value="@Model.Entity" />
+            @if (Model.Key is not null)
+            {
+                <input type="hidden" name="key" value="@Model.Key" />
+            }
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            @foreach (var field in Model.Fields)
+            {
+                <div class="mb-3">
+                    <label for="@field.Name" class="form-label">@field.Label</label>
+                    <input id="@field.Name" name="@field.Name" value="@field.Value" type="@field.InputType"
+                           class="form-control" step="@(field.Step)" maxlength="@(field.MaxLength)"
+                           required="@(field.IsRequired ? "required" : null)"
+                           readonly="@(Model.Key is not null && field.IsKey ? "readonly" : null)" />
+                    @if (field.IsKey && Model.Key is null)
+                    {
+                        <div class="form-text">Mã là khóa chính trong cơ sở dữ liệu; mã này phải duy nhất.</div>
+                    }
+                    @if (field.Name.StartsWith("Ma", StringComparison.Ordinal) && !field.IsKey)
+                    {
+                        <div class="form-text">Nhập mã bản ghi đã có trong database để thỏa mãn khóa ngoại.</div>
+                    }
+                    <span class="text-danger field-validation-valid" data-valmsg-for="@field.Name"></span>
+                </div>
+            }
+            <button class="btn btn-primary" type="submit">Lưu</button>
+            <a class="btn btn-outline-secondary" asp-action="NkkList" asp-route-entity="@Model.Entity">Hủy</a>
+        </form>
+    </div>
+</div>
+

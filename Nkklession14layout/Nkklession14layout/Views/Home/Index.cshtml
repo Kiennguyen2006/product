@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Quản lý shop điện thoại";
+}
+
+<div class="shop-hero p-4 p-md-5 mb-4 rounded-3">
+    <div class="container-fluid py-2">
+        <h1 class="display-6 fw-bold">Quản lý shop điện thoại</h1>
+        <p class="col-md-9 fs-5">Quản lý sản phẩm, tồn kho, khách hàng, nhà cung cấp, nhân viên và chứng từ nhập/bán hàng.</p>
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <a class="btn btn-primary btn-lg" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="dien-thoai">Mở quản lý</a>
+        }
+        else
+        {
+            <a class="btn btn-primary btn-lg" asp-controller="NkkAccount" asp-action="NkkLogin">Đăng nhập</a>
+            <a class="btn btn-outline-primary btn-lg ms-2" asp-controller="NkkAccount" asp-action="NkkRegister">Tạo tài khoản</a>
+        }
+    </div>
+</div>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="row g-3">
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="dien-thoai">Điện thoại</a></div>
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="nha-cung-cap">Nhà cung cấp</a></div>
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="khach-hang">Khách hàng</a></div>
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="nhan-vien">Nhân viên</a></div>
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="hoa-don">Hóa đơn bán</a></div>
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="chi-tiet-hoa-don">Chi tiết hóa đơn</a></div>
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="phieu-nhap">Phiếu nhập</a></div>
+        <div class="col-sm-6 col-lg-3"><a class="shop-tile" asp-controller="NkkShop" asp-action="NkkList" asp-route-entity="chi-tiet-phieu-nhap">Chi tiết phiếu nhập</a></div>
+    </div>
+}
+

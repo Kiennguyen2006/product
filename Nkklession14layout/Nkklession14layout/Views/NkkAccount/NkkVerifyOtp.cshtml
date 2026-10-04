@@ -1,0 +1,35 @@
+﻿@model Nkklession14layout.Models.NkkVerifyOtpViewModel
+@{
+    ViewData["Title"] = "Xác nhận mã";
+}
+
+<div class="auth-card">
+    <h1 class="h3 mb-3">Xác nhận mã</h1>
+    @if (ViewBag.StatusMessage is string status)
+    {
+        <div class="alert alert-info">@status</div>
+    }
+    @if (ViewBag.DevelopmentOtp is string developmentOtp)
+    {
+        <div class="alert alert-warning">
+            Mã OTP phát triển (chỉ hiển thị trong môi trường Development): <strong>@developmentOtp</strong>
+        </div>
+    }
+    <form asp-action="NkkVerifyOtp" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <input asp-for="Email" type="hidden" />
+        <p>Email nhận mã: <strong>@Model.Email</strong></p>
+        <div class="mb-3">
+            <label asp-for="Code" class="form-label"></label>
+            <input asp-for="Code" class="form-control" inputmode="numeric" autocomplete="one-time-code" />
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">Xác nhận mã</button>
+    </form>
+    <p class="mt-3 mb-0"><a asp-action="NkkForgotPassword">Yêu cầu mã mới</a></p>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

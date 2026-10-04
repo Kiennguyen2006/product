@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj": {}
+    "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj": {
+    "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj",
+        "projectUniqueName": "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj",
         "projectName": "nkklession05",
-        "projectPath": "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj",
+        "projectPath": "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\nkklession05.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\obj\\",
+        "outputPath": "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession05\\nkklession05\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

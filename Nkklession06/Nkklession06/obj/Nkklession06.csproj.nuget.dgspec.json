@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj": {}
+    "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj": {
+    "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj",
+        "projectUniqueName": "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj",
         "projectName": "Nkklession06",
-        "projectPath": "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj",
+        "projectPath": "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\Nkklession06.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\obj\\",
+        "outputPath": "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\Nkklession06\\Nkklession06\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

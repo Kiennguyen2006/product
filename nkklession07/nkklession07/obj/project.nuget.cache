@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o8ZxIBMGwTk=",
+  "dgSpecHash": "g9GjTx2ZDxc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession07\\nkklession07\\nkklession07.csproj",
+  "projectFilePath": "c:\\Users\\Admin\\Documents\\phát triển ứng dụng wed bằng công nghệ .net\\product\\product\\nkklession07\\nkklession07\\nkklession07.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
